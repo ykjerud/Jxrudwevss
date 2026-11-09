@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Chronicle of Salvation | A Scroll of Salvation History</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9dab0;--card:#f3e8c8;--ink:#2a1f14;--soft:#5b4a35;--gold:#9a6f1c;--blue:#1f3a5f;--red:#7a2a1e;--line:#b59a5e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1710;--card:#2a2117;--ink:#efe0b8;--soft:#bfa97c;--gold:#d8a94a;--blue:#8fb0dd;--red:#d98a78;--line:#6b5630}}
+:root[data-theme="dark"]{--bg:#1d1710;--card:#2a2117;--ink:#efe0b8;--soft:#bfa97c;--gold:#d8a94a;--blue:#8fb0dd;--red:#d98a78;--line:#6b5630}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 "IM Fell English",Georgia,serif}
+h1,h2,h3,.cz{font-family:Cinzel,"Times New Roman",serif;letter-spacing:.04em}
+.key{height:14px;background:repeating-linear-gradient(90deg,var(--gold) 0 14px,transparent 14px 20px,var(--blue) 20px 24px,transparent 24px 30px);opacity:.8}
+nav{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;padding:.8rem 1rem;border-bottom:1px solid var(--line);font-family:Cinzel,serif;font-size:.85rem}
+nav a{color:var(--blue);text-decoration:none}nav a:hover,nav a:focus-visible{text-decoration:underline}
+.hero{text-align:center;padding:3.5rem 1.2rem 3rem;max-width:760px;margin:auto}
+.frame{position:relative;border:3px double var(--gold);padding:2rem .9rem 1.8rem;background:radial-gradient(circle at 50% 0,rgba(154,111,28,.2),transparent 65%)}
+.frame::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
+.hero h1{margin:.5rem 0;line-height:1.05;display:flex;flex-direction:column;align-items:center}
+.hero h1 .s1{font-size:clamp(.95rem,4.5vw,1.4rem);font-weight:500;letter-spacing:.35em;color:var(--soft)}
+.hero h1 .s2{font-size:clamp(1.8rem,9.5vw,4.4rem);letter-spacing:.04em;background:linear-gradient(180deg,var(--gold),var(--red) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(1px 1px 0 var(--line))}
+.orn{color:var(--gold);margin:1rem 0 0;font-size:.85rem}
+.rule{display:flex;align-items:center;gap:.6rem;margin:.8rem auto;max-width:320px;color:var(--gold)}
+.rule i{flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.hero .sub{font-style:italic;color:var(--soft);font-size:1.2rem}
+.seal{width:84px;height:84px;margin:auto;border:3px double var(--gold);border-radius:50%;display:grid;place-items:center;font:700 2rem Cinzel,serif;color:var(--gold)}
+section{max-width:900px;margin:auto;padding:2.5rem 1.2rem}
+h2{font-size:clamp(1.4rem,5vw,2rem);text-align:center;color:var(--blue);margin:.2rem 0 1rem}
+.note{border:1px solid var(--line);background:var(--card);padding:1rem;font-size:.95rem;border-left:5px solid var(--gold)}
+.tools{display:flex;flex-direction:column;gap:.7rem;margin:1.2rem 0}
+input[type=search]{width:100%;padding:.7rem;font:inherit;background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+button{font:600 .8rem Cinzel,serif;letter-spacing:.04em;padding:.6rem .9rem;background:var(--card);color:var(--ink);border:1px solid var(--gold);cursor:pointer}
+button[aria-pressed=true],button.pri{background:var(--blue);color:#fff;border-color:var(--blue)}
+:root:not([data-theme="light"]) button[aria-pressed=true]{color:#1d1710}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.prog{display:flex;justify-content:space-between;align-items:center;font-size:.95rem;color:var(--soft);gap:.5rem;flex-wrap:wrap}
+.tl{list-style:none;margin:1.5rem 0;padding:0 0 0 1.6rem;border-left:3px double var(--gold)}
+.tl li{position:relative;margin:0 0 1.2rem}
+.tl li::before{content:"";position:absolute;left:calc(-1.6rem - 8px);top:1.2rem;width:13px;height:13px;transform:rotate(45deg);background:var(--bg);border:2px solid var(--gold)}
+.tl li.seen::before{background:var(--gold)}
+.ev{display:block;width:100%;text-align:left;padding:1rem 1.1rem;background:var(--card);border:1px solid var(--line);box-shadow:3px 3px 0 var(--line);font:inherit;letter-spacing:0;color:var(--ink)}
+.ev .era{font:700 .75rem Cinzel,serif;color:var(--red)}
+.ev .t{display:block;font:700 1.15rem Cinzel,serif;color:var(--blue);margin:.15rem 0}
+.ev .d{font-style:italic;color:var(--soft);font-size:.95rem}
+.empty{text-align:center;padding:2rem;font-style:italic}
+.two{display:grid;gap:1rem}
+.pass{background:var(--card);border:1px solid var(--line);padding:1rem}
+.pass b{font-family:Cinzel,serif;color:var(--red)}
+.cov{display:flex;flex-direction:column;gap:.6rem;margin:1.2rem 0}
+.cov div{padding:.7rem 1rem;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--gold)}
+.cov div:last-child{border-left-color:var(--red);font-weight:700}
+.final{text-align:center}
+.final::before,.final::after{content:"";display:block;height:18px;border-radius:9px;background:linear-gradient(180deg,var(--gold),var(--red) 55%,var(--gold));box-shadow:0 3px 0 var(--line)}
+.final::before{margin-bottom:2rem}.final::after{margin-top:2rem}
+.amen{font-size:clamp(2.2rem,12vw,3.6rem);color:var(--gold);margin:.5rem 0;letter-spacing:.2em}
+.wax{display:inline-block;padding:.9rem 1.5rem;border-radius:42% 58% 55% 45%/50% 45% 55% 50%;background:radial-gradient(circle at 35% 30%,#a8402f,#7a2a1e 60%,#4d150d);color:#f6e7c1;font:700 .85rem Cinzel,serif;letter-spacing:.05em;text-decoration:none;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.bub{position:fixed;z-index:60;pointer-events:none;border-radius:50%;border:2px solid var(--gold);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.75),rgba(154,111,28,.15) 60%,transparent);animation:pop .9s ease-out forwards!important}
+@keyframes pop{from{opacity:.95;transform:translateY(0) scale(1)}to{opacity:0;transform:translateY(-40px) scale(4.5)}}
+footer{text-align:center;font-size:.85rem;color:var(--soft);padding:1.5rem 1.2rem 2.5rem;max-width:760px;margin:auto}
+dialog{width:min(640px,94vw);max-height:88vh;overflow:auto;background:var(--card);color:var(--ink);border:3px double var(--gold);padding:1.4rem}
+dialog::backdrop{background:rgba(20,12,4,.65)}
+.bgscene{--sky1:#f6e3b0;--sky2:#ead8a8;--sun:#d9a441;--cloud:#fff6dc;--h1:#c9ad72;--h2:#b8955a;--h3:#8c6a3a;--cam:#4a3418;--palm:#5d6b2f;--star:0;position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bgscene{--sky1:#0b1020;--sky2:#1d1710;--sun:#e8e2c8;--cloud:#3a3550;--h1:#2a2433;--h2:#2b2218;--h3:#1c150d;--cam:#0c0905;--palm:#2f3a1a;--star:1}}
+:root[data-theme="dark"] .bgscene{--sky1:#0b1020;--sky2:#1d1710;--sun:#e8e2c8;--cloud:#3a3550;--h1:#2a2433;--h2:#2b2218;--h3:#1c150d;--cam:#0c0905;--palm:#2f3a1a;--star:1}
+.bgscene .s1{stop-color:var(--sky1)}.bgscene .s2{stop-color:var(--sky2)}
+.sun circle{fill:var(--sun);transform-box:fill-box;transform-origin:center;animation:pulse 4s ease-in-out infinite}
+.rays{fill:none;stroke:var(--sun);stroke-width:3;opacity:.55;transform-box:fill-box;transform-origin:center;animation:spin 55s linear infinite}
+.cl{fill:var(--cloud);opacity:.6;animation:drift 55s linear infinite}.cl2{animation-duration:85s;animation-delay:-36s}
+.stars{opacity:var(--star)}.stars circle{fill:#fff;animation:tw 2s ease-in-out infinite}.stars circle:nth-child(2n){animation-delay:-1.2s}
+.hl1{fill:var(--h1)}.hl2,.city{fill:var(--h2)}.hl3{fill:var(--h3)}
+.palm{fill:none;stroke:var(--palm);stroke-width:4;stroke-linecap:round;transform-box:fill-box;transform-origin:50% 100%;animation:sway 4s ease-in-out infinite}
+.car{fill:var(--cam);stroke:var(--cam);animation:walk 60s linear infinite}.car use{animation:bob .9s ease-in-out infinite}
+.bird{fill:none;stroke:var(--cam);stroke-width:2;animation:drift 30s linear infinite}.bird2{animation-delay:-13s}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.08)}}
+@keyframes drift{from{transform:translateX(-300px)}to{transform:translateX(1100px)}}
+@keyframes walk{from{transform:translateX(-320px)}to{transform:translateX(1100px)}}
+@keyframes tw{50%{opacity:.2}}@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}@keyframes bob{50%{transform:translateY(-2px)}}
+section,.hero,nav,footer{background:color-mix(in srgb,var(--bg) 82%,transparent)}
+dialog.closing{animation:rollup .5s cubic-bezier(.6,0,.8,.4) forwards}
+dialog.closing::backdrop{animation:fadeout .5s ease-in forwards}
+@keyframes rollup{0%{clip-path:inset(0);opacity:1;transform:none}60%{opacity:1}100%{clip-path:inset(100% 0 0 0);opacity:0;transform:translateY(18px) scale(.96)}}
+@keyframes fadeout{to{opacity:0}}
+@media (prefers-reduced-motion:reduce){.bgscene *{animation:none!important}}
+dialog[open]{animation:unroll .65s cubic-bezier(.2,.7,.2,1)}
+dialog[open]::backdrop{animation:fade .45s ease-out}
+dialog.turn>*{animation:ink .45s ease-out}
+@keyframes unroll{from{clip-path:inset(0 0 100% 0);opacity:.4;transform:translateY(-14px)}to{clip-path:inset(0);opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}}
+@keyframes ink{from{opacity:0;transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){dialog[open],dialog[open]::backdrop,dialog.turn>*{animation:none}}
+dialog h3{margin:.2rem 0;color:var(--red);font-size:1.4rem}
+.pic{display:block;width:100%;height:auto;border:3px double var(--gold);margin:.5rem 0 .3rem}
+.pic .g{fill:var(--gold)}.pic .b{fill:var(--blue)}.pic .r{fill:var(--red)}.pic .k{fill:var(--ink)}.pic .c{fill:var(--card)}.pic .bg{fill:var(--bg)}
+.pic .gs,.pic .rs,.pic .ks,.pic .bs,.pic .cs{fill:none;stroke-width:3;stroke-linecap:round}
+.pic .gs{stroke:var(--gold)}.pic .rs{stroke:var(--red)}.pic .ks{stroke:var(--ink)}.pic .bs{stroke:var(--blue)}.pic .cs{stroke:var(--card)}dialog h4{font:700 .85rem Cinzel,serif;color:var(--blue);margin:1.1rem 0 .2rem}
+dialog p{margin:.2rem 0}
+.nav2{display:flex;gap:.5rem;justify-content:space-between;margin-top:1.2rem;flex-wrap:wrap}
+.theme{position:fixed;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:5;border-radius:50%;width:44px;height:44px;padding:0;font-size:1.1rem}
+@media (min-width:700px){.two{grid-template-columns:1fr 1fr}.tools{flex-direction:row;align-items:center}.tools input{flex:1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg class="bgscene" viewBox="0 0 800 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="s1"/><stop offset="1" class="s2"/></linearGradient>
+<g id="cm"><ellipse rx="22" ry="10"/><circle cx="-8" cy="-11" r="7"/><path d="M18-3L30-24" style="fill:none;stroke-width:6;stroke-linecap:round"/><ellipse cx="35" cy="-26" rx="8" ry="4"/><path d="M-14 6v22M-6 6v22M8 6v22M16 6v22" style="fill:none;stroke-width:3"/></g>
+<g id="pm"><path d="M0 0q6-60-2-110"/><path d="M-2-110q-30-16-52 4M-2-110q-20-30-48-16M-2-110q4-34 30-34M-2-110q22-26 50-12M-2-110q30-6 50 14"/></g></defs>
+<rect width="800" height="600" fill="url(#sk)"/>
+<g class="stars"><circle cx="90" cy="50" r="1.6"/><circle cx="200" cy="110" r="1.4"/><circle cx="310" cy="40" r="1.8"/><circle cx="430" cy="90" r="1.4"/><circle cx="520" cy="30" r="1.6"/><circle cx="700" cy="70" r="1.5"/><circle cx="750" cy="170" r="1.4"/><circle cx="150" cy="190" r="1.6"/></g>
+<g class="sun"><path class="rays" d="M620 60v-24M620 180v24M560 120h-24M680 120h24M578 78l-17-17M662 162l17 17M662 78l17-17M578 162l-17 17"/><circle cx="620" cy="120" r="34"/></g>
+<g class="cl"><ellipse cx="120" cy="150" rx="60" ry="14"/><ellipse cx="160" cy="140" rx="36" ry="14"/></g><g class="cl cl2"><ellipse cx="300" cy="230" rx="70" ry="12"/><ellipse cx="340" cy="220" rx="40" ry="12"/></g>
+<path class="hl1" d="M0 400q120-70 240-30t200-50q120-40 360 40V600H0z"/>
+<path class="city" d="M320 362v-34h8v-8h8v8h8v-14h10v14h10v-30h12v-10l6-8l6 8v10h12v30h10v-14h10v14h14v34z"/>
+<path class="hl2" d="M0 470q150-50 300-10t280-20q120-20 220 30V600H0z"/>
+<use href="#pm" x="50" y="580" class="palm"/><use href="#pm" x="90" y="590" class="palm" style="animation-delay:-2s"/><use href="#pm" x="750" y="580" class="palm" style="animation-delay:-4s"/>
+<g class="car"><use href="#cm" x="40" y="520"/><use href="#cm" x="120" y="520" style="animation-delay:-.4s"/><use href="#cm" x="200" y="520" style="animation-delay:-.8s"/></g>
+<path class="hl3" d="M0 548q200-18 400-4t400-10V600H0z"/>
+<path class="bird" d="M0 90q6-6 12 0q6-6 12 0"/><path class="bird bird2" d="M0 140q6-6 12 0q6-6 12 0"/></svg>
+<div class="key" aria-hidden="true"></div>
+<nav aria-label="Sections"><a href="#timeline">Timeline</a><a href="#connections">How It Connects</a><a href="#scripture">Readings</a><a href="#final">Our Path</a></nav>
+
+<header class="hero" id="top">
+<div class="frame"><div class="seal" aria-hidden="true">✝</div>
+<p class="cz orn">❖ A Scroll of Holy Scripture ❖</p>
+<h1><span class="s1">The Chronicle of</span><span class="s2">Salvation</span></h1>
+<div class="rule" aria-hidden="true"><i></i><b>☩</b><i></i></div>
+<p class="sub">From the First Day to Life Everlasting</p>
+<p>This is the account of <b>God’s love</b> and <b>His design to rescue mankind</b>. From the covenants and the prophets, to the arrival of <b>Jesus Christ</b> and the founding of the Church, each age reveals a God who comes close to His people.</p>
+<p><a class="cz" href="#timeline" style="color:var(--blue)">Open the scroll ↓</a></p></div>
+</header>
+<div class="key" aria-hidden="true"></div>
+
+<section id="timeline">
+<h2>Eight Ages, One Tale of Love</h2>
+<p class="note"><b>About the dates.</b> The earliest events, such as Creation, the Patriarchs, and the Exodus, cannot be tied to agreed years, so “c.” means “around” and scholars disagree. Dating grows firmer from the age of the kings onward. The Second Coming and the Last Judgment are <b>still to come</b>, and no one knows the hour. <b>Jesus Christ stands at the center and is the fulfillment of the whole story.</b></p>
+<div class="tools">
+<input type="search" id="q" placeholder="Look up an event by name or word" aria-label="Look up events">
+<div class="chips" id="chips" role="group" aria-label="Choose a category"></div>
+</div>
+<div class="prog"><span>Visited: <b id="cnt">0</b> of <b id="tot">0</b></span><button id="reset" type="button">Start over</button></div>
+<ol class="tl" id="list"></ol>
+<p class="empty" id="none" hidden>Nothing matches. Try a different word, or choose every event.</p>
+</section>
+
+<section id="connections">
+<h2>One Tale, One Promise, One Savior</h2>
+<p style="text-align:center">All of salvation history is a single plan of God, stretching from Creation to Christ and from Christ into eternity. Every covenant prepares the next.</p>
+<div class="cov"><div>Adam: life given, and friendship with God</div><div>Noah: God’s vow to keep creation safe</div><div>Abraham: a family that would bless every nation</div><div>Moses: freedom for a people, and the Law</div><div>David: a throne that will never fall</div><div>Jesus Christ: the new covenant that never ends</div></div>
+</section>
+
+<section id="scripture">
+<h2>Ten Readings That Carry the Story</h2>
+<p style="text-align:center;font-size:.95rem">Take up a Catholic Bible and read each passage whole.</p>
+<div class="two" id="pass"></div>
+</section>
+
+<section id="final" class="final">
+<h2>The Tale Goes On</h2>
+<p>God’s love for mankind runs unbroken from Creation and the covenants, through the Resurrection of Christ and the birth of the Church. As Christians we walk on in faith, waiting for the promise of life everlasting.</p>
+<p class="amen cz">Amen.</p>
+<p><a class="wax" href="#top">↑ Back to the start</a></p>
+</section>
+<div class="key" aria-hidden="true"></div>
+<footer><div class="cz" style="color:var(--gold);font-size:1.1rem;letter-spacing:.3em;margin-bottom:.6rem" aria-hidden="true">❦ ✝ ❦</div>Scripture references are given for learning, and every summary is in our own words. Dates for early biblical events are estimates. Made for a Catholic school class project.</footer>
+
+<button class="theme" id="theme" type="button" aria-label="Switch light or dark mode">☀</button>
+
+<dialog id="dlg" aria-labelledby="dt">
+<div class="cz" id="dera" style="font-size:.8rem;color:var(--blue)"></div>
+<h3 id="dt"></h3><p id="dd" style="font-style:italic;color:var(--soft)"></p><div id="dart"></div>
+<h4>The Account</h4><p id="do"></p>
+<h4>How It Points to Christ</h4><p id="dj"></p>
+<h4>Read More</h4><p id="ds"></p>
+<h4>On the Date</h4><p id="dn"></p>
+<div class="nav2" style="margin-top:.8rem"><button id="voice" type="button">🔊 Mage voice: on</button><button id="replay" type="button">↻ Tell it again</button></div>
+<div class="nav2"><button id="prev" type="button">← Back</button><button id="close" type="button" class="pri">Close</button><button id="next" type="button">Onward →</button></div>
+</dialog>
+
+<script>
+const ERAS=["I. The First Days","II. Fathers of Faith","III. Freedom and Covenant","IV. The Royal Age","V. Exile and the Prophets","VI. Christ Arrives","VII. Cross and Empty Tomb","VIII. The Church and Forever"];
+const E=[
+[0,"OT","The Creation","Before recorded time","God speaks the heavens and the earth into being, pronounces them good, and makes mankind in His own image.","Everything was made through Christ, the Word who was with God from the start.","Genesis 1–2; John 1:1–3","No agreed date. Scripture tells us who made the world, not when."],
+[0,"OT","The Fall","The earliest ages","Adam and Eve choose their own path and break their trust in God. Sin and death enter the world, yet God pledges to save.","Jesus is the new Adam. He obeys where Adam failed and wins back what was lost.","Genesis 3; Romans 5:12–19","No agreed date."],
+[0,"OT","Noah and the Flood","The earliest ages","God keeps Noah’s household safe through the waters and makes a covenant with every living creature, marked by the rainbow.","The ark points to the Church, and Baptism saves us as the flood waters bore Noah.","Genesis 6–9; 1 Peter 3:20–21","No agreed date."],
+[1,"OT","Abraham Is Called","c. 2000 BC","God tells Abraham to leave his homeland and promises him land, a great nation, and a blessing for all peoples.","Christ is the descendant of Abraham through whom every nation is blessed.","Genesis 12:1–3; Galatians 3:16","Estimated. Scholars place Abraham early in the second millennium BC."],
+[2,"OT","Moses and the Exodus","c. 1250 BC","God hears Israel crying out in Egypt, sends Moses, and brings His people through the sea to freedom. The first Passover marks that night.","Jesus is the true Passover Lamb who sets mankind free from sin and death.","Exodus 3; 12–14; 1 Corinthians 5:7","Disputed. Many scholars suggest the 13th century BC."],
+[2,"OT","The Ten Commandments","c. 1250 BC","On Mount Sinai God gives the Law and renews His covenant, showing Israel how to love Him and their neighbor.","Jesus came to fulfill the Law, and sums it up as love of God and love of neighbor.","Exodus 20:1–17; Matthew 5:17","Estimated, following the Exodus."],
+[3,"OT","David, the Shepherd King","c. 1000 BC","God picks the young shepherd David to be king and promises that his throne will stand forever.","Jesus, born of David’s line, is the king whose reign never ends.","1 Samuel 16; 2 Samuel 7:12–16","Firmer. Most scholars place David around 1000 BC."],
+[3,"OT","Solomon Builds the Temple","c. 960 BC","Solomon raises the Temple in Jerusalem as a house of prayer, where God’s presence dwells among His people.","Christ’s body is the new Temple, and the Church is God’s dwelling.","1 Kings 6–8; John 2:19–21","Fairly firm, give or take a few decades."],
+[4,"OT","The Exile in Babylon","586 BC","Jerusalem falls and its people are carried off to Babylon. Even there, the prophets promise a return and a new covenant.","Christ gathers God’s scattered people and leads them home.","2 Kings 25; Jeremiah 29:10–14; 31:31","Well documented. 586 BC is widely accepted."],
+[4,"OT","The Prophets Foretell the Messiah","c. 740–540 BC","Isaiah and other prophets describe a coming servant who will bear suffering, bring peace, and save His people.","The Gospels show these prophecies fulfilled in Jesus.","Isaiah 7:14; 9:6; 53:4–6","Estimated, across several centuries."],
+[5,"NT","The Annunciation","c. 6–5 BC","The angel Gabriel announces to Mary that she will bear the Son of God, and she says yes.","Mary’s yes lets the Word become flesh.","Luke 1:26–38","Estimated. Herod the Great died in 4 BC."],
+[5,"Jesus","The Birth of Jesus","c. 6–4 BC","Jesus is born in Bethlehem, and shepherds hear tidings of great joy.","God Himself enters human history: Emmanuel, God with us.","Luke 2:1–20; Matthew 1–2","Estimated. Our calendar’s year count is off by a few years."],
+[5,"Jesus","Baptism and Public Ministry","c. AD 27–30","John baptizes Jesus, who then teaches, heals, and calls disciples to follow Him.","Jesus shows the Father’s mercy and proclaims that God’s kingdom is near.","Mark 1:9–15; Matthew 5–7","Estimated, within first-century history."],
+[6,"Jesus","The Last Supper","c. AD 30–33","The night before He dies, Jesus shares bread and wine with the apostles and gives them the Eucharist.","Jesus offers His Body and Blood as the meal of the new covenant.","Luke 22:14–20; 1 Corinthians 11:23–26","Scholars most often suggest AD 30 or 33."],
+[6,"Jesus","The Crucifixion","c. AD 30–33","Jesus is sentenced and crucified under Pontius Pilate, laying down His life in love for everyone.","On the Cross, Christ makes the one perfect sacrifice for sin.","John 19; Romans 5:8","Same range as the Last Supper."],
+[6,"Jesus","The Resurrection","c. AD 30–33","On the third day Jesus rises from the dead and appears to His disciples. Death is defeated.","The Resurrection is the heart of our faith and the promise that we too will rise.","John 20; 1 Corinthians 15:3–8","Three days after the Crucifixion."],
+[7,"NT","Pentecost and the Church’s Birth","c. AD 30–33","The Holy Spirit descends on the apostles, and they go out to preach the Gospel to every nation.","Christ carries on His mission through the Church, in the power of the Spirit.","Acts 2:1–41","Fifty days after Easter."],
+[7,"Future","The Second Coming","Yet to come","Christians believe Christ will return in glory to judge the living and the dead. No one knows the day or the hour.","The Christ who came humbly will return as Lord of all.","Matthew 24:36; Acts 1:11","Still in the future. Only God knows when."],
+[7,"Future","Life Everlasting","Past the end of time","God renews all things. He will dry every tear and dwell with His people forever.","In Christ, mankind is welcomed into lasting communion with God.","Revelation 21:1–4; John 3:16","Beyond history, the promise fulfilled."]];
+const P=[["Genesis 1:1","In the beginning, God brings all things into being and finds them good."],["Genesis 12:1–3","God summons Abraham and pledges a blessing that will reach every nation."],["Exodus 20:1–17","On Sinai, God hands down the Ten Commandments."],["2 Samuel 7:12–16","God vows that David’s royal line will endure."],["Isaiah 53:4–6","A suffering servant takes on the sins of many."],["Luke 1:38","Mary trusts God’s plan and says yes."],["John 3:16","Out of love, God gives His Son so that all may live."],["John 20:28–29","Thomas sees the risen Lord and believes."],["Acts 2:1–4","The Spirit descends, and the Church begins."],["Revelation 21:3–4","God makes His home with His people and dries every tear."]];
+const CATS=[["All","Every Event"],["OT","Old Testament"],["NT","New Testament"],["Jesus","Jesus’ Life"],["Future","Hope Ahead"]];
+let cat="All",cur=0,seen=new Set();
+const $=id=>document.getElementById(id);
+$("tot").textContent=E.length;
+const W=`<path d="M0 100q19-10 38 0t38 0t38 0t38 0t38 0t38 0t38 0t38 0V130H0z" class="b"/>`;
+const A=[
+`<g class="gs"><path d="M150 8v14M150 108v14M92 65h14M194 65h14M108 23l10 10M192 107l-10-10M192 23l-10 10M108 107l10-10"/></g><circle cx="150" cy="65" r="30" class="b"/><path d="M130 58q12-10 24 0t14 10" class="cs"/>`,
+`<rect x="143" y="55" width="14" height="50" class="k"/><circle cx="150" cy="40" r="32" class="b"/><circle cx="136" cy="46" r="6" class="r"/><circle cx="164" cy="36" r="6" class="r"/><path d="M158 102q-22-8 0-20t-16-22" class="rs"/>`,
+`<path d="M60 70a90 90 0 0 1 180 0" class="rs"/><path d="M72 70a78 78 0 0 1 156 0" class="gs"/><path d="M84 70a66 66 0 0 1 132 0" class="bs"/><path d="M110 66h80v-14h-80z" class="g"/><path d="M70 66h160l-24 30H94z" class="k"/>${W}`,
+`<g class="g"><circle cx="40" cy="22" r="3"/><circle cx="90" cy="38" r="3"/><circle cx="210" cy="20" r="3"/><circle cx="262" cy="40" r="3"/><circle cx="170" cy="14" r="3"/><circle cx="60" cy="70" r="3"/><circle cx="245" cy="76" r="3"/></g><path d="M120 104l30-46l30 46z" class="g"/><path d="M150 76l-11 28h22z" class="k"/>`,
+`<path d="M0 0h110q-20 30 0 60t-10 60H0z" class="b"/><path d="M300 0H190q20 30 0 60t10 60h110z" class="b"/><path d="M105 124l22-22h46l22 22z" class="g"/><path d="M150 12v96M150 12q-16-2-12 12" class="ks"/>`,
+`<path d="M0 124L90 52l40 30 60-52 110 94z" class="b" style="opacity:.35"/><path d="M95 106V42a27 27 0 0 1 54 0v64z" class="g"/><path d="M155 106V42a27 27 0 0 1 54 0v64z" class="g"/><path d="M107 52h30M107 64h30M107 76h30M167 52h30M167 64h30M167 76h30" class="ks" style="stroke-width:2"/>`,
+`<path d="M100 98l-8-48l30 24l28-36l28 36l30-24l-8 48z" class="g"/><circle cx="150" cy="34" r="5" class="r"/><path d="M250 116V44q0-20-20-14" class="ks"/>`,
+`<path d="M70 52l80-32l80 32z" class="g"/><g class="b"><rect x="86" y="58" width="16" height="42"/><rect x="118" y="58" width="16" height="42"/><rect x="166" y="58" width="16" height="42"/><rect x="198" y="58" width="16" height="42"/></g><rect x="70" y="100" width="160" height="10" class="k"/>`,
+`<path d="M0 92q37-14 75 0t75 0t75 0t75 0V130H0z" class="b"/><path d="M70 96V48" class="ks"/><path d="M70 48q-30 0-34 44M70 48q30 0 34 44M70 48q-16 10-14 44M70 48q16 10 14 44" class="gs"/><path d="M200 36v40q22 0 22-30z" class="g"/>`,
+`<path d="M150 6l5 11h12l-10 8l4 12l-11-7l-11 7l4-12l-10-8h12z" class="g"/><rect x="84" y="54" width="132" height="54" class="c" style="stroke:var(--gold);stroke-width:3"/><rect x="76" y="48" width="12" height="66" rx="6" class="g"/><rect x="212" y="48" width="12" height="66" rx="6" class="g"/><path d="M100 70h100M100 82h100M100 94h64" class="ks" style="stroke-width:2"/>`,
+`<circle cx="150" cy="46" r="38" class="gs"/><path d="M150 118V62" class="bs"/><path d="M150 62q-26-10-24-36q18 6 24 36zM150 62q26-10 24-36q-18 6-24 36zM150 62q-5-26 0-44q5 18 0 44z" class="c" style="stroke:var(--blue);stroke-width:2"/>`,
+`<path d="M60 12l6 14h15l-12 9l5 15l-14-9l-14 9l5-15l-12-9h15z" class="g" transform="translate(40 4)"/><path d="M104 70l46-34l46 34z" class="r"/><rect x="116" y="70" width="68" height="38" class="g"/><path d="M142 108V88h16v20z" class="k"/>`,
+`<ellipse cx="150" cy="38" rx="14" ry="8" class="c" style="stroke:var(--ink);stroke-width:2"/><path d="M140 34q-18-20-34-12q18 4 26 20zM160 34q18-20 34-12q-18 4-26 20z" class="c" style="stroke:var(--ink);stroke-width:2"/><path d="M150 52v30M138 52l-8 28M162 52l8 28" class="gs" style="stroke-width:2"/><path d="M0 96q19-10 38 0t38 0t38 0t38 0t38 0t38 0t38 0t38 0V130H0z" class="b"/>`,
+`<path d="M118 24h44q0 30-22 32q-22-2-22-32z" class="g"/><path d="M124 30h32q0 16-16 20q-16-4-16-20z" class="r"/><rect x="137" y="56" width="6" height="34" class="g"/><rect x="122" y="88" width="36" height="8" class="g"/><ellipse cx="210" cy="88" rx="26" ry="9" style="fill:#a8762a"/><rect x="60" y="96" width="180" height="8" class="k"/>`,
+`<path d="M0 130V106q60-14 150-14t150 14v24z" class="k"/><g class="k"><rect x="64" y="46" width="8" height="50"/><rect x="52" y="56" width="32" height="7"/><rect x="228" y="46" width="8" height="50"/><rect x="216" y="56" width="32" height="7"/></g><rect x="143" y="10" width="14" height="86" class="r"/><rect x="118" y="34" width="64" height="14" class="r"/>`,
+`<g class="gs"><path d="M150 4v12M104 16l8 10M196 16l-8 10M80 46h12M208 46h12"/></g><circle cx="150" cy="50" r="26" class="g"/><path d="M112 112V82a38 38 0 0 1 76 0v30z" class="k"/><circle cx="224" cy="92" r="20" class="c" style="stroke:var(--ink);stroke-width:3"/><rect x="0" y="112" width="300" height="18" class="k"/>`,
+`<g class="r"><path transform="translate(90 62)" d="M0-26q16 14 10 30q-4 8-10 8t-10-8q-6-16 10-30z"/><path transform="translate(150 52) scale(1.3)" d="M0-26q16 14 10 30q-4 8-10 8t-10-8q-6-16 10-30z"/><path transform="translate(210 62)" d="M0-26q16 14 10 30q-4 8-10 8t-10-8q-6-16 10-30z"/></g><g class="g"><path transform="translate(90 66) scale(.5)" d="M0-26q16 14 10 30q-4 8-10 8t-10-8q-6-16 10-30z"/><path transform="translate(150 58) scale(.65)" d="M0-26q16 14 10 30q-4 8-10 8t-10-8q-6-16 10-30z"/><path transform="translate(210 66) scale(.5)" d="M0-26q16 14 10 30q-4 8-10 8t-10-8q-6-16 10-30z"/></g><g class="k"><circle cx="90" cy="108" r="10"/><circle cx="150" cy="108" r="10"/><circle cx="210" cy="108" r="10"/></g>`,
+`<path d="M150 84L40 0M150 84L260 0M150 84V0M150 84L95 0M150 84L205 0" class="gs" style="stroke-width:2"/><g class="c" style="stroke:var(--gold);stroke-width:2"><circle cx="110" cy="96" r="22"/><circle cx="150" cy="86" r="28"/><circle cx="190" cy="96" r="22"/><rect x="110" y="98" width="80" height="20" style="stroke:none"/></g>`,
+`<circle cx="150" cy="48" r="46" class="gs" style="stroke-width:1.5;opacity:.6"/><rect x="144" y="62" width="12" height="48" class="k"/><circle cx="150" cy="46" r="32" class="g"/><path d="M0 114q75-12 150-6t150-6v28H0z" class="b"/>`];
+const art=i=>`<svg class="pic" viewBox="0 0 300 130" role="img" aria-label="Illustration: ${E[i][2]}"><rect width="300" height="130" class="bg"/>${A[i]}</svg>`;
+const syn=window.speechSynthesis;let vOn=true;
+if(!syn)$("voice").hidden=$("replay").hidden=true;
+function pickVoice(){const v=syn.getVoices().filter(x=>/^en/i.test(x.lang));return v.find(x=>/daniel|google uk english male|arthur|oliver|male/i.test(x.name))||v.find(x=>/^en-GB/i.test(x.lang))||v[0]}
+function speak(force){if(!syn||(!vOn&&!force))return;try{syn.cancel();const e=E[cur];const u=new SpeechSynthesisUtterance(`Draw near, young wanderer... Listen to the tale of ${e[2]}. ${e[3]}. ... ${e[4]} ... ${e[5]}`);const v=pickVoice();if(v)u.voice=v;u.pitch=.35;u.rate=.76;u.volume=1;syn.speak(u)}catch(x){}}
+$("chips").innerHTML=CATS.map(c=>`<button type="button" data-c="${c[0]}" aria-pressed="${c[0]=="All"}">${c[1]}</button>`).join("");
+$("pass").innerHTML=P.map(p=>`<div class="pass"><b>${p[0]}</b><br>${p[1]}</div>`).join("");
+function vis(){const q=$("q").value.trim().toLowerCase();return E.map((e,i)=>i).filter(i=>{const e=E[i];return (cat=="All"||e[1]==cat)&&(!q||(e[2]+e[3]+e[4]).toLowerCase().includes(q))})}
+function render(){const v=vis();$("list").innerHTML=v.map(i=>`<li class="${seen.has(i)?"seen":""}"><button class="ev" type="button" data-i="${i}"><span class="era">${ERAS[E[i][0]]}</span><span class="t">${E[i][2]}</span><span class="d">${E[i][3]}</span></button></li>`).join("");$("none").hidden=v.length>0;$("cnt").textContent=seen.size}
+function show(i){cur=i;seen.add(i);const e=E[i];$("dera").textContent=ERAS[e[0]];$("dt").textContent=e[2];$("dd").textContent=e[3];$("do").textContent=e[4];$("dj").textContent=e[5];$("ds").textContent=e[6];$("dn").textContent=e[7];$("dart").innerHTML=art(i);const d=$("dlg");d.classList.remove("turn");if(!d.open)d.showModal();else{void d.offsetWidth;d.classList.add("turn")}render();speak()}
+$("list").onclick=e=>{const b=e.target.closest("[data-i]");if(b)show(+b.dataset.i)};
+$("chips").onclick=e=>{const b=e.target.closest("[data-c]");if(!b)return;cat=b.dataset.c;[...$("chips").children].forEach(x=>x.setAttribute("aria-pressed",x==b));render()};
+$("q").oninput=render;
+$("reset").onclick=()=>{seen.clear();render()};
+$("prev").onclick=()=>show((cur+E.length-1)%E.length);
+$("next").onclick=()=>show((cur+1)%E.length);
+function closeDlg(){const d=$("dlg");if(!d.open||d.classList.contains("closing"))return;if(syn)syn.cancel();if(matchMedia("(prefers-reduced-motion:reduce)").matches){d.close();return}d.classList.add("closing");setTimeout(()=>{d.classList.remove("closing");d.close()},500)}
+$("close").onclick=closeDlg;
+$("dlg").addEventListener("cancel",e=>{e.preventDefault();closeDlg()});
+$("dlg").addEventListener("close",()=>{if(syn)syn.cancel()});
+$("voice").onclick=()=>{vOn=!vOn;$("voice").textContent=vOn?"🔊 Mage voice: on":"🔇 Mage voice: off";if(vOn)speak();else syn.cancel()};
+$("replay").onclick=()=>speak(true);
+document.addEventListener("pointerdown",e=>{if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const host=document.querySelector("dialog[open]")||document.body;for(let k=0;k<4;k++){const b=document.createElement("span");b.className="bub";const s=k?8+Math.random()*12:20;const x=e.clientX+(k?(Math.random()-.5)*60:0),y=e.clientY+(k?(Math.random()-.5)*40:0);b.style.cssText=`left:${x-s/2}px;top:${y-s/2}px;width:${s}px;height:${s}px;animation-delay:${k*80}ms`;host.appendChild(b);setTimeout(()=>b.remove(),1200)}});
+$("theme").onclick=()=>{const r=document.documentElement,d=matchMedia("(prefers-color-scheme:dark)").matches;const now=r.dataset.theme||(d?"dark":"light");r.dataset.theme=now=="dark"?"light":"dark"};
+render();
+</script>
+</body>
+</html>
